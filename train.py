@@ -38,7 +38,7 @@ def getArgs():
         "--model",
         metavar="model_structure",
         default="Unet",
-        help="Unet/ResNet34_Unet",
+        help="Unet/resnet34_unet",
         # unet++/myChannelUnet/Attention_UNet/segnet/r2unet/fcn32s/fcn8s
     )
     parse.add_argument(
@@ -140,13 +140,15 @@ def val(model, best_iou, val_dataloaders):
             miou_total += get_iou(mask[0], img_y)  # 获取当前预测图的miou，并加到总miou中
             dice_total += get_dice(mask[0], img_y)
             # if i < num:
-                # i += 1  # 处理验证集下一张图
+            # i += 1  # 处理验证集下一张图
 
         aver_iou = miou_total / num
         aver_hd = hd_total / num
         aver_dice = dice_total / num
 
-        print("Miou = %f, Aver_hd = %f, Aver_dice = %f" % (aver_iou, aver_hd, aver_dice))
+        print(
+            "Miou = %f, Aver_hd = %f, Aver_dice = %f" % (aver_iou, aver_hd, aver_dice)
+        )
         logging.info(
             "Miou=%f, Aver_hd=%f, Aver_dice=%f" % (aver_iou, aver_hd, aver_dice)
         )

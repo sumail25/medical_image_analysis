@@ -10,6 +10,7 @@ def loss_plot(args, current_dirname, loss):
         os.makedirs(plot_save_path)
     save_loss = (
         plot_save_path
+        + "/"
         + str(args.model)
         + "_"
         + str(args.dataset)
@@ -36,6 +37,7 @@ def metrics_plot(arg, current_dirname, name, *args):
         os.makedirs(plot_save_path)
     save_metrics = (
         plot_save_path
+        + "/"
         + str(arg.model)
         + "_"
         + str(arg.dataset)
