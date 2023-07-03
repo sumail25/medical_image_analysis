@@ -1,0 +1,8 @@
+# ignore datasets
+
+data/*
+!data/*.md
+
+# ignore weights
+weights/*
+!weights/*.md
