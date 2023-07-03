@@ -22,13 +22,14 @@ This project is an implementation of medical image segmentation and analysis usi
 2. Install the required dependencies: `pip install -r requirements.txt`
 3. Prepare your dataset or use the provided sample dataset.
 ***(TODO)***
+4. Run the training script to train the segmentation model: `python train.py`
 <!-- 
-1. Run the training script to train the segmentation model: `python train.py`
-2. Evaluate the model on test images: `python evaluate.py`
-3. Customize the code for your specific use case and integrate it into your own projects.
+1. Evaluate the model on test images: `python evaluate.py`
+2. Customize the code for your specific use case and integrate it into your own projects.
 -->
 ## Results
 
+![](assets\res.png)
 
 ## License
 
