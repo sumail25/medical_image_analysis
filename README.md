@@ -29,7 +29,9 @@ This project is an implementation of medical image segmentation and analysis usi
 -->
 ## Results
 
-![](assets\res.png)
+<p align="center">
+    <img src="assets/res.png"/>
+</p>
 
 ## License
 
