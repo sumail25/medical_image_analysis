@@ -1,8 +1,15 @@
 # ignore datasets
-
 data/*
 !data/*.md
 
 # ignore weights
 weights/*
 !weights/*.md
+
+# ignore settings and cache
+.vscode
+__pycache__
+
+# ignore results
+results/*
+!results/*.md
