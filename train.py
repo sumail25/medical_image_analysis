@@ -11,6 +11,7 @@ from torch import autograd, optim
 
 from dataset import *
 from utils.metrics import *
+from utils.loss import *
 from utils.plot import loss_plot, metrics_plot
 
 from models.Unet import Unet, resnet34_unet
@@ -29,7 +30,7 @@ def getArgs():
     parse.add_argument("--deepsupervision", default=0)
     parse.add_argument("--epoch", type=int, default=21)
     parse.add_argument(
-        "--batch_size", type=int, default=5
+        "--batch_size", type=int, default=10
     )  # set small for saving cuda memory
     parse.add_argument(
         "--action", type=str, help="train/test/train&test", default="train&test"
@@ -56,7 +57,7 @@ def getArgs():
 
 def gettime():
     i = datetime.datetime.now()
-    return "{}-{}-{}-{}_{}_{}".format(
+    return "{}_{}_{}_{}_{}_{}".format(
         i.year, i.month, i.day, i.hour, i.minute, i.second
     )
 
@@ -363,7 +364,9 @@ if __name__ == "__main__":
 
     model = getModel(args)
     train_dataloaders, val_dataloaders, test_dataloaders = getDataset(args)
-    criterion = torch.nn.BCELoss()
+    
+    # criterion = torch.nn.BCELoss()
+    criterion = FocalLoss()
     optimizer = optim.Adam(model.parameters())
 
     if "train" in args.action:
